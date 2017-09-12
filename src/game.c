@@ -3,6 +3,18 @@
 #include "gf2d_sprite.h"
 #include "simple_logger.h"
 
+typedef struct
+{
+	void *data;
+	size_t numElements;
+	size_t elementSize;
+}PriorityQueue;
+
+PriorityQueue *pq_new(size_t elementSize);
+void pq_delete(PriorityQueue *pq);
+void *pq_delete_max(PriorityQueue *pq);
+void pq_insert(PriorityQueue *pq, void *data);
+
 int main(int argc, char * argv[])
 {
     /*variable declarations*/
@@ -62,7 +74,7 @@ int main(int argc, char * argv[])
         gf2d_grahics_next_frame();// render current draw frame and skip to the next frame
         
         if (keys[SDL_SCANCODE_ESCAPE])done = 1; // exit condition
-        slog("Rendering at %f FPS",gf2d_graphics_get_frames_per_second());
+   //     slog("Rendering at %f FPS",gf2d_graphics_get_frames_per_second());
     }
     slog("---==== END ====---");
     return 0;
