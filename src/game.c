@@ -13,7 +13,7 @@ typedef struct
 PriorityQueue *pq_new(size_t elementSize);
 void pq_delete(PriorityQueue *pq);
 void *pq_delete_max(PriorityQueue *pq);
-void pq_insert(PriorityQueue *pq, void *data);
+void pq_insert(PriorityQueue *pq, void *data, int priority);
 
 int main(int argc, char * argv[])
 {
